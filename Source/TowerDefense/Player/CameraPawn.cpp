@@ -5,6 +5,8 @@
 #include "Components/SceneComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
+#include "TowerDefense/TowerDefenseGameModeBase.h"
 
 // Sets default values
 ACameraPawn::ACameraPawn()
@@ -53,8 +55,14 @@ void ACameraPawn::Tick(float DeltaTime)
 
 	FMath::Clamp(GetActorLocation().X, 0.f, 800.f);
 	FMath::Clamp(GetActorLocation().Y, 0.f, 800.f);
-	AddActorWorldOffset(GetCameraPanDirection() * CameraPanSpeed);
+
+
+	ATowerDefenseGameModeBase* GM = Cast<ATowerDefenseGameModeBase>( UGameplayStatics::GetGameMode(this));
 	
+	if (GetWorldTimerManager().GetTimerRemaining(GM->PregameTimerHandle) <= 0)
+	{
+		AddActorWorldOffset(GetCameraPanDirection() * CameraPanSpeed);
+	}
 	//PanMoveCamera(GetCameraPanDirection());
 }
 

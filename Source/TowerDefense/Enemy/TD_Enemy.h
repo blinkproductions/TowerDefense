@@ -19,6 +19,23 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// FUNCTIONS:
+	UFUNCTION(BlueprintImplementableEvent)
+	void UpdateHealth();
+
+	// COMPONENTS:
+	UPROPERTY(EditDefaultsOnly)
+	class USpringArmComponent* SpringArm;
+	
+	UPROPERTY(EditDefaultsOnly)
+	class UCameraComponent* Camera;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	class UWidgetComponent* ArmorAndHealthWidget;
+
+	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Components")
+	class UHealthComponent* HealthComponent;
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

@@ -17,14 +17,17 @@ public:
 	// Sets default values for this component's properties
 	UHealthComponent();
 
-	// FUNCTIONS
+	// FUNCTIONS:
 	UFUNCTION(BlueprintCallable)
 	void TakeDamage(float AmountOfDamage);
 
 	UFUNCTION(BlueprintCallable)
 	void Heal(float HealAmount);
 
+	UFUNCTION(BlueprintCallable)
 	void SetHealth(float NewHealthAmount) { CurrentHealth = NewHealthAmount; }
+
+	UFUNCTION(BlueprintCallable)
 	void SetArmor(float NewArmorAmount) { CurrentArmor = NewArmorAmount; }
 
 	UFUNCTION(BlueprintPure)
@@ -44,7 +47,7 @@ protected:
 	bool bIsDead;
 	
 private:
-	// VARIABLES
+	// VARIABLES:
 	float CurrentHealth;
 	float CurrentArmor;
 

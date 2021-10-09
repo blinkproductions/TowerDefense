@@ -11,7 +11,7 @@ UHealthComponent::UHealthComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	CurrentArmor = MaxArmor;
-	CurrentHealth = MaxHealth / 2;
+	CurrentHealth = MaxHealth;
 	bIsDead = false;
 }
 
