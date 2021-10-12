@@ -27,6 +27,7 @@ public:
 	
 	void SpawnEnemy(class ATD_Enemy* EnemyType, int32 AmountToSpawn, int SpawnPoint);
 	void GiveFreeGold();
+	UFUNCTION(BlueprintCallable)
 	void GiveGold(int32 GoldToGive);
 	void RoundOver(bool bResult);
 	void StartPregame();

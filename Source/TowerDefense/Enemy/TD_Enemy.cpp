@@ -28,6 +28,8 @@ ATD_Enemy::ATD_Enemy()
 
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	bUseControllerRotationYaw = false;
+
+	GoldReward = 15;
 }
 
 // Called when the game starts or when spawned
