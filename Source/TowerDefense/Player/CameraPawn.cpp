@@ -53,8 +53,8 @@ void ACameraPawn::Tick(float DeltaTime)
 
 	PC->GetViewportSize(ScreenSizeX, ScreenSizeY); // can be optimized by having a set dimension for screen
 
-	FMath::Clamp(GetActorLocation().X, 0.f, 800.f);
-	FMath::Clamp(GetActorLocation().Y, 0.f, 800.f);
+	//FMath::Clamp(GetActorLocation().X, 0.f, 800.f);
+	//FMath::Clamp(GetActorLocation().Y, 0.f, 800.f);
 
 
 	ATowerDefenseGameModeBase* GM = Cast<ATowerDefenseGameModeBase>( UGameplayStatics::GetGameMode(this));

@@ -30,7 +30,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	class UCameraComponent* Camera;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly)
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Widgets")
 	class UWidgetComponent* ArmorAndHealthWidget;
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly, Category = "Components")
@@ -43,7 +43,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Rewards Prooperty")
 	int32 GoldReward;
 
 };

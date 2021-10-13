@@ -26,6 +26,12 @@ ATD_Enemy::ATD_Enemy()
 
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>("HealthComponent");
 
+	HealthComponent->SetCurrentArmor(100.f);
+	HealthComponent->SetMaxArmor(100.f);
+
+	HealthComponent->SetCurrentHealth(100.f);
+	HealthComponent->SetMaxHealth(100.f);
+
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	bUseControllerRotationYaw = false;
 

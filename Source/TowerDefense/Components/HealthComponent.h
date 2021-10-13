@@ -25,16 +25,22 @@ public:
 	void Heal(float HealAmount);
 
 	UFUNCTION(BlueprintCallable)
-	void SetHealth(float NewHealthAmount) { CurrentHealth = NewHealthAmount; }
+	void SetCurrentHealth(float NewCurrentHealthAmount) { CurrentHealth = NewCurrentHealthAmount; }
 
 	UFUNCTION(BlueprintCallable)
-	void SetArmor(float NewArmorAmount) { CurrentArmor = NewArmorAmount; }
+	void SetCurrentArmor(float NewCurrentArmorAmount) { CurrentArmor = NewCurrentArmorAmount; }
+
+	UFUNCTION(BlueprintCallable)
+	void SetMaxArmor(float NewMaxArmor) { MaxArmor = NewMaxArmor; }
+
+	UFUNCTION(BlueprintCallable)
+	void SetMaxHealth(float NewMaxHealth) { MaxHealth = NewMaxHealth; }
 
 	UFUNCTION(BlueprintPure)
-	float GetCurrentHealthPercentage() const { return CurrentHealth / 100.f; }
+	float GetCurrentHealthPercentage() const { return CurrentHealth / MaxHealth; }
 
 	UFUNCTION(BlueprintPure)
-	float GetCurrentArmorPercentage() const { return CurrentArmor / 100.f; }
+	float GetCurrentArmorPercentage() const { return CurrentArmor / MaxArmor; }
 	
 protected:
 	// Called when the game starts
@@ -43,17 +49,17 @@ protected:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
+	// VARIABLES:
 	UPROPERTY(BlueprintReadWrite)
 	bool bIsDead;
-	
-private:
-	// VARIABLES:
+
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Health Properties")
 	float CurrentHealth;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Health Properties")
+	float MaxHealth;
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Health Properties")
 	float CurrentArmor;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Health Properties")
-	float MaxHealth = 100.f;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Health Properties")
-	float MaxArmor = 50.f;
+	
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Health Properties")
+	float MaxArmor;
 };
