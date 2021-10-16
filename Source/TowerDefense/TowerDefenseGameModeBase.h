@@ -67,6 +67,8 @@ protected:
 	float MaxHealthOfBase;
 	float CurrentHealthOfBase;
 
+	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Gold Properties")
+	bool bFreeGoldSystem;
 	UPROPERTY(EditDefaultsOnly, Category = "Gold Properties")
 	int32 FreeGoldToGive;
 	UPROPERTY(EditDefaultsOnly, Category = "Gold Properties")

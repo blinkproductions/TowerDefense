@@ -7,6 +7,7 @@
 ATowerDefenseGameModeBase::ATowerDefenseGameModeBase()
 {
 	TimeForPregame = 2.f;
+	bFreeGoldSystem = false;
 	CurrentGold = 0;
 	FreeGoldToGive = 1;
 	TimeDelayForFreeGold = 1.f;
@@ -54,7 +55,11 @@ void ATowerDefenseGameModeBase::StartPregame()
 
 void ATowerDefenseGameModeBase::StartLevel()
 {
-	GetWorld()->GetTimerManager().SetTimer(DelayForFreeGoldTimerHandle, this, &ATowerDefenseGameModeBase::GiveFreeGold, TimeDelayForFreeGold, true);
+	// Free gold system:
+	if (bFreeGoldSystem)
+	{
+		GetWorld()->GetTimerManager().SetTimer(DelayForFreeGoldTimerHandle, this, &ATowerDefenseGameModeBase::GiveFreeGold, TimeDelayForFreeGold, true);	
+	}
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LEVEL START!!");
 }
 

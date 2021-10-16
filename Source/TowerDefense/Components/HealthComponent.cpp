@@ -23,10 +23,7 @@ void UHealthComponent::TakeDamage(float AmountOfDamage)
 	} else if (CurrentHealth > 0)
 	{
 		CurrentHealth -= AmountOfDamage;	
-	} else if (CurrentHealth <= 0)
-	{
-		bIsDead = true;
-	}
+	} 
 }
 
 void UHealthComponent::Heal(float HealAmount)
@@ -47,6 +44,9 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-	// ...
+	if (CurrentHealth <= 0)
+	{
+		bIsDead = true;
+	}
 }
 
