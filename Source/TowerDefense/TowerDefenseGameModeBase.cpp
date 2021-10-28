@@ -17,7 +17,7 @@ void ATowerDefenseGameModeBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	GEngine->AddOnScreenDebugMessage(-1, 0.f, FColor::Yellow, FString::Printf(TEXT("(ATowerDefenseGameModeBase)Current Gold: %d"), CurrentGold ));
+	//GEngine->AddOnScreenDebugMessage(-1, 0.f, FColor::Yellow, FString::Printf(TEXT("(ATowerDefenseGameModeBase)Current Gold: %d"), CurrentGold ));
 }
 
 void ATowerDefenseGameModeBase::BeginPlay()
@@ -48,7 +48,7 @@ void ATowerDefenseGameModeBase::RoundOver(bool bResult)
 
 void ATowerDefenseGameModeBase::StartPregame()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Pregame started...");
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "Pregame started...");
 	
 	GetWorld()->GetTimerManager().SetTimer(PregameTimerHandle, this, &ATowerDefenseGameModeBase::StartLevel, TimeForPregame, false);
 }
@@ -60,7 +60,7 @@ void ATowerDefenseGameModeBase::StartLevel()
 	{
 		GetWorld()->GetTimerManager().SetTimer(DelayForFreeGoldTimerHandle, this, &ATowerDefenseGameModeBase::GiveFreeGold, TimeDelayForFreeGold, true);	
 	}
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LEVEL START!!");
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "LEVEL START!!");
 }
 
 void ATowerDefenseGameModeBase::PauseGame()

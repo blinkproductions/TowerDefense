@@ -69,9 +69,9 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Gold Properties")
 	bool bFreeGoldSystem;
-	UPROPERTY(EditDefaultsOnly, Category = "Gold Properties")
+	UPROPERTY(EditDefaultsOnly, Category = "Gold Properties", meta = (EditCondition = bFreeGoldSystem))
 	int32 FreeGoldToGive;
-	UPROPERTY(EditDefaultsOnly, Category = "Gold Properties")
+	UPROPERTY(EditDefaultsOnly, Category = "Gold Properties", meta = (EditCondition = bFreeGoldSystem))
 	float TimeDelayForFreeGold;
 	
 	int32 CurrentGold;
