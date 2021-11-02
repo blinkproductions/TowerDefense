@@ -8,8 +8,8 @@ struct FUnitProperties : public FTableRowBase
 {
 	GENERATED_BODY()
 	
-	//UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Unit Property")
-	//FText Name;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Unit Property")
+	FText Name;
 	
 	// Tower, Champion
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Icons")

@@ -46,11 +46,19 @@ public:
 	FTimerHandle PregameTimerHandle;
 	UPROPERTY(BlueprintReadOnly, Category = "Time Handles")
 	FTimerHandle DelayForFreeGoldTimerHandle;
+	UPROPERTY(BlueprintReadOnly, Category = "Time Handles")
+	FTimerHandle DelayForBurningCardTimerHandle;
 
 protected:
 	// VARIABLES:
+
+	// WAVE PROPERTIES:
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Wave Properties")
 	int32 MaxNumberOfWaves;
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Wave Properties") // change to BlueprintReadOnly on shipped code
 	int32 CurrentWave;
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Wave Properties")
+	TArray<bool>TiersUnlocked;
 	
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Time Properties")
 	float TimeForPregame;
