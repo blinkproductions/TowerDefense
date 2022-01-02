@@ -11,6 +11,10 @@ ATowerDefenseGameModeBase::ATowerDefenseGameModeBase()
 	CurrentGold = 0;
 	FreeGoldToGive = 1;
 	TimeDelayForFreeGold = 1.f;
+	
+	DealingRange = Tier1DealingRange;
+
+	TiersUnlocked = {true, false, false};
 }
 
 void ATowerDefenseGameModeBase::Tick(float DeltaTime)
@@ -42,8 +46,29 @@ void ATowerDefenseGameModeBase::GiveGold(int32 GoldToGive)
 	CurrentGold += GoldToGive;
 }
 
-void ATowerDefenseGameModeBase::RoundOver(bool bResult)
+void ATowerDefenseGameModeBase::GameOver(bool bResult)
 {
+}
+
+void ATowerDefenseGameModeBase::DetermineTiersUnlocked()
+{
+	if (CurrentWave > 5 && CurrentWave <= 10)
+	{
+		TiersUnlocked[1] = true;
+		DealingRange = 16.f;
+	} else if (CurrentWave > 10)
+	{
+		for (auto i : TiersUnlocked)
+		{
+			i = true;
+		}
+		DealingRange = 25.f;
+	}
+}
+
+void ATowerDefenseGameModeBase::WaveEnded()
+{
+	// If CurrentWave is not equal the last wave then increment CurrentWave
 }
 
 void ATowerDefenseGameModeBase::StartPregame()

@@ -29,7 +29,11 @@ public:
 	void GiveFreeGold();
 	UFUNCTION(BlueprintCallable)
 	void GiveGold(int32 GoldToGive);
-	void RoundOver(bool bResult);
+	void GameOver(bool bResult);
+	void DetermineTiersUnlocked();
+
+	// Called each time a wave ends. 
+	void WaveEnded();
 	void StartPregame();
 	void StartLevel();
 	void PauseGame();
@@ -51,14 +55,20 @@ public:
 
 protected:
 	// VARIABLES:
-
 	// WAVE PROPERTIES:
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Wave Properties")
 	int32 MaxNumberOfWaves;
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Wave Properties") // change to BlueprintReadOnly on shipped code
 	int32 CurrentWave;
+
+	//NOTE:
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Wave Properties")
 	TArray<bool>TiersUnlocked;
+
+	// Dealing ranges depends on the CSV file. Modify these values when necessary.
+	const float Tier1DealingRange = 7.f;
+	const float Tier2DealingRange = 16.f;
+	const float Tier3DealingRange = 25.f;
 	
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly, Category = "Time Properties")
 	float TimeForPregame;
@@ -83,8 +93,10 @@ protected:
 	float TimeDelayForFreeGold;
 	
 	int32 CurrentGold;
-	
 
+	// Default value is 7 where 7 is the last  Tier 1 unit in the CSV file
+	float DealingRange;
+	
 	// DeckToGiveForLevel
 
 	// EnemiesToSpawn
