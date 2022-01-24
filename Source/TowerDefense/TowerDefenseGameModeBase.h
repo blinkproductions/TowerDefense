@@ -29,8 +29,14 @@ public:
 	void GiveFreeGold();
 	UFUNCTION(BlueprintCallable)
 	void GiveGold(int32 GoldToGive);
+	
+	UFUNCTION(BlueprintCallable)
+	void PayGold(int32 Cost) { if (CurrentGold >= Cost ) { CurrentGold -= Cost;} }
+	
 	void GameOver(bool bResult);
 	void DetermineTiersUnlocked();
+	UFUNCTION(BlueprintCallable)
+	void GiveStartingGold(int32 StartingGold);
 
 	// Called each time a wave ends. 
 	void WaveEnded();
@@ -39,8 +45,8 @@ public:
 	void PauseGame();
 	UFUNCTION(BlueprintPure)
 	float GetFreeGoldTimePercentage();
-	UFUNCTION(BlueprintPure)
-	FORCEINLINE float GetCurentGold() { return CurrentGold; }
+	UFUNCTION(BlueprintCallable)
+	FORCEINLINE int32 GetCurentGold() { return CurrentGold; }
 
 	UPROPERTY(BlueprintReadOnly, Category = "Time Handles")
 	FTimerHandle EnemySpawnTimerHandle;

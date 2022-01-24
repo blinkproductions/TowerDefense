@@ -66,6 +66,11 @@ void ATowerDefenseGameModeBase::DetermineTiersUnlocked()
 	}
 }
 
+void ATowerDefenseGameModeBase::GiveStartingGold(int32 StartingGold)
+{
+	GiveGold(StartingGold);
+}
+
 void ATowerDefenseGameModeBase::WaveEnded()
 {
 	// If CurrentWave is not equal the last wave then increment CurrentWave
